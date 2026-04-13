@@ -1246,6 +1246,23 @@
           });
     </script>
 
+    <script>
+        // Remove Webflow watermark badge
+        function removeWatermark() {
+            const badge = document.querySelector('.w-webflow-badge');
+            if (badge) badge.remove();
+            
+            const embedContainer = document.querySelector('.extension-embed-container');
+            if (embedContainer) embedContainer.remove();
+        }
+        
+        // Remove on page load
+        document.addEventListener('DOMContentLoaded', removeWatermark);
+        
+        // Also check periodically in case it's added later
+        setInterval(removeWatermark, 1);
+    </script>
+
     <div class="extension-embed-container"></div>
 </body>
 
